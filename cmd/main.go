@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"hot-coffee/internal/handler"
 )
 
 var (
@@ -39,8 +41,10 @@ func Run() {
 		log.Fatal("Failed to make directory: ", err)
 	}
 
+	mux := handler.SetupRoutes()
+
 	fmt.Println("Server started on port: ", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
 
 func InitFlags() (string, string) {
