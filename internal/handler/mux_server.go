@@ -7,11 +7,9 @@ import (
 	"hot-coffee/internal/service"
 )
 
-var Mux *http.ServeMux = http.NewServeMux()
-
-func SetupRoutes() *http.ServeMux {
+func SetupServer() *http.ServeMux {
 	menuRepo := dal.NewMenuRepo("data/json")
-	menuService := service.NewmenuService(menuRepo)
+	menuService := service.NewMenuService(menuRepo)
 	menuHandler := NewMenuHandler(menuService)
 
 	mux := http.NewServeMux()
@@ -25,10 +23,10 @@ func SetupRoutes() *http.ServeMux {
 
 	// MENU Items handling
 	mux.HandleFunc("POST /menu", menuHandler.AddNewMenu)
-	mux.HandleFunc("GET /menu", RetrieveAllMenu)
-	mux.HandleFunc("GET /menu/{id}", RetrieveSpecificMenu)
-	mux.HandleFunc("PUT /menu/{id}", UpdateMenu)
-	mux.HandleFunc("DELETE /menu", DeleteMenu)
+	mux.HandleFunc("GET /menu", menuHandler.RetrieveAllMenu)
+	mux.HandleFunc("GET /menu/{id}", menuHandler.RetrieveSpecificMenu)
+	mux.HandleFunc("PUT /menu/{id}", menuHandler.UpdateMenu)
+	mux.HandleFunc("DELETE /menu", menuHandler.DeleteMenu)
 
 	// INVENTORY handling
 	mux.HandleFunc("POST /inventory", AddNewInventory)

@@ -16,13 +16,14 @@ type menuService struct {
 	menuRepo dal.MenuRepositoryInterface
 }
 
-func NewmenuService(menuRepo dal.MenuRepositoryInterface) *menuService {
+func NewMenuService(menuRepo dal.MenuRepositoryInterface) *menuService {
 	return &menuService{menuRepo: menuRepo}
 }
 
 func (s *menuService) Add(newMenu models.MenuItem) error {
 	// Valiadtionnasd
-	s.menuRepo.Add(newMenu)
+	// s.menuRepo.Add(newMenu)
+	return nil
 }
 
 // SOLID && Dependency injection

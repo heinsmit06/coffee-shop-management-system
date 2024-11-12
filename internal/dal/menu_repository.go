@@ -15,4 +15,5 @@ func NewMenuRepo(path string) *menuRepo {
 }
 
 func (r *menuRepo) GetAll() ([]models.MenuItem, error) {
+	return []models.MenuItem{}, nil
 }

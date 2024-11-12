@@ -1,6 +1,18 @@
 package handler
 
-import "net/http"
+import (
+	"net/http"
+
+	"hot-coffee/internal/service"
+)
+
+type orderHandler struct {
+	orderService service.OrderServiceInterface
+}
+
+func NewOrderHandler(orderService service.OrderServiceInterface) *orderHandler {
+	return &orderHandler{orderService: orderService}
+}
 
 func CreateNewOrder(w http.ResponseWriter, r *http.Request) {
 }

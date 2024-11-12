@@ -4,10 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"net/http"
 	"os"
-
-	"hot-coffee/internal/handler"
 )
 
 var (
@@ -17,34 +14,36 @@ var (
 )
 
 func main() {
-	// err := os.MkdirAll("./test/another", 0750)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
 	Run()
 }
 
 func Run() {
 	dirPath, port = InitFlags()
 
-	// check if the directory already exist
-	// _, err := os.Stat(dirPath)
-	// if err != nil {
-	// 	if os.IsNotExist(err) {
-	// 	}
-	// } else {
-	// 	err = fmt.Errorf("Directory %s already exists", dirPath)
-	// 	log.Fatal(err)
-	// }
-	err := os.MkdirAll(dirPath, 0750)
+	err := os.Mkdir(dirPath, 0750)
 	if err != nil {
 		log.Fatal("Failed to make directory: ", err)
 	}
 
-	mux := handler.SetupRoutes()
+	err = os.WriteFile(dirPath+"orders.json", []byte{}, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = os.WriteFile(dirPath+"menu_items.json", []byte{}, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = os.WriteFile(dirPath+"inventory_items.json", []byte{}, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// mux := handler.SetupServer()
 
 	fmt.Println("Server started on port: ", port)
-	log.Fatal(http.ListenAndServe(":"+port, mux))
+	// log.Fatal(http.ListenAndServe(":"+port, mux))
 }
 
 func InitFlags() (string, string) {
@@ -52,7 +51,7 @@ func InitFlags() (string, string) {
 	var port string
 	var help bool
 
-	flag.BoolVar(&help, "help", false, "-help for usage information")
+	flag.BoolVar(&help, "help", false, "usage information")
 	flag.StringVar(
 		&dirPath,
 		"dir",
@@ -77,15 +76,23 @@ Options:
 		os.Exit(0)
 	}
 
-	if dirPath == "" {
-		fmt.Fprintf(
-			os.Stderr,
-			"Please determine path by -dir flag\n Use -help flag for more information\n",
-		)
+	if port == "0" {
+		fmt.Fprint(os.Stderr, "Port 0 can NOT be used\n")
 		os.Exit(1)
 	}
+	// if dirPath == "" {
+	// 	fmt.Fprintf(
+	// 		os.Stderr,
+	// 		"Please determine path by -dir flag\n Use -help flag for more information\n",
+	// 	)
+	// 	os.Exit(1)
+	// }
 
-	dirPath += "/"
+	if dirPath != "" {
+		dirPath += "/data/"
+	} else {
+		dirPath = "data/"
+	}
 
 	return dirPath, port
 }

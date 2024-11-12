@@ -17,14 +17,14 @@ func NewMenuHandler(menuService service.MenuServiceInterface) *menuHandler {
 func (h *menuHandler) AddNewMenu(w http.ResponseWriter, r *http.Request) {
 }
 
-func RetrieveAllMenu(w http.ResponseWriter, r *http.Request) {
+func (h *menuHandler) RetrieveAllMenu(w http.ResponseWriter, r *http.Request) {
 }
 
-func RetrieveSpecificMenu(w http.ResponseWriter, r *http.Request) {
+func (h *menuHandler) RetrieveSpecificMenu(w http.ResponseWriter, r *http.Request) {
 }
 
-func UpdateMenu(w http.ResponseWriter, r *http.Request) {
+func (h *menuHandler) UpdateMenu(w http.ResponseWriter, r *http.Request) {
 }
 
-func DeleteMenu(w http.ResponseWriter, r *http.Request) {
+func (h *menuHandler) DeleteMenu(w http.ResponseWriter, r *http.Request) {
 }
