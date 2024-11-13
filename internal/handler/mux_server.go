@@ -18,6 +18,10 @@ func SetupServer(dirPath string) *http.ServeMux {
 	orderService := service.NewOrderService(orderRepo)
 	orderHandler := NewOrderHandler(orderService)
 
+	inventoryRepo := dal.NewInventoryRepo(dirPath)
+	inventoryService := service.NewInventoryService(inventoryRepo)
+	inventoryHandler := NewInventoryHandler(inventoryService)
+
 	// ORDER handling
 	mux.HandleFunc("POST /order", orderHandler.CreateNewOrder)
 	mux.HandleFunc("GET /order", orderHandler.RetrieveAllOrders)
@@ -34,11 +38,11 @@ func SetupServer(dirPath string) *http.ServeMux {
 	mux.HandleFunc("DELETE /menu", menuHandler.DeleteMenu)
 
 	// INVENTORY handling
-	mux.HandleFunc("POST /inventory", AddNewInventory)
-	mux.HandleFunc("GET /inventory", RetrieveAllInventory)
-	mux.HandleFunc("GET /inventory/{id}", RetrieveSpecificInventory)
-	mux.HandleFunc("PUT /inventory/{id}", UpdateInventory)
-	mux.HandleFunc("DELETE /inventory/{id}", DeleteInventory)
+	mux.HandleFunc("POST /inventory", inventoryHandler.AddNewInventory)
+	mux.HandleFunc("GET /inventory", inventoryHandler.RetrieveAllInventory)
+	mux.HandleFunc("GET /inventory/{id}", inventoryHandler.RetrieveSpecificInventory)
+	mux.HandleFunc("PUT /inventory/{id}", inventoryHandler.UpdateInventory)
+	mux.HandleFunc("DELETE /inventory/{id}", inventoryHandler.DeleteInventory)
 
 	// AGGREGATIONS handling
 

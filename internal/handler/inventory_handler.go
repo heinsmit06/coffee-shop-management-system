@@ -1,18 +1,30 @@
 package handler
 
-import "net/http"
+import (
+	"net/http"
 
-func AddNewInventory(w http.ResponseWriter, r *http.Request) {
+	"hot-coffee/internal/service"
+)
+
+type inventoryHandler struct {
+	inventoryService service.InventoryServiceInterface
 }
 
-func RetrieveAllInventory(w http.ResponseWriter, r *http.Request) {
+func NewInventoryHandler(inventoryService service.InventoryServiceInterface) *inventoryHandler {
+	return &inventoryHandler{inventoryService: inventoryService}
 }
 
-func RetrieveSpecificInventory(w http.ResponseWriter, r *http.Request) {
+func (h *inventoryHandler) AddNewInventory(w http.ResponseWriter, r *http.Request) {
 }
 
-func UpdateInventory(w http.ResponseWriter, r *http.Request) {
+func (h *inventoryHandler) RetrieveAllInventory(w http.ResponseWriter, r *http.Request) {
 }
 
-func DeleteInventory(w http.ResponseWriter, r *http.Request) {
+func (h *inventoryHandler) RetrieveSpecificInventory(w http.ResponseWriter, r *http.Request) {
+}
+
+func (h *inventoryHandler) UpdateInventory(w http.ResponseWriter, r *http.Request) {
+}
+
+func (h *inventoryHandler) DeleteInventory(w http.ResponseWriter, r *http.Request) {
 }
