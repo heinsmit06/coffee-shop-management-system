@@ -8,7 +8,7 @@ import (
 )
 
 type MenuServiceInterface interface {
-	AddMenu(models.MenuItem) error
+	AddMenu(*http.Request) error
 	GetAll() ([]models.MenuItem, error)
 	GetOne(id string) (models.MenuItem, error)
 	Update(r *http.Request, id string) error
