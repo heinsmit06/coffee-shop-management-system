@@ -35,7 +35,7 @@ func SetupServer(dirPath string) *http.ServeMux {
 	mux.HandleFunc("GET /menu", menuHandler.RetrieveAllMenu)
 	mux.HandleFunc("GET /menu/{id}", menuHandler.RetrieveSpecificMenu)
 	mux.HandleFunc("PUT /menu/{id}", menuHandler.UpdateMenu)
-	mux.HandleFunc("DELETE /menu", menuHandler.DeleteMenu)
+	mux.HandleFunc("DELETE /menu/{id}", menuHandler.DeleteMenu)
 
 	// INVENTORY handling
 	mux.HandleFunc("POST /inventory", inventoryHandler.AddNewInventory)
@@ -45,6 +45,8 @@ func SetupServer(dirPath string) *http.ServeMux {
 	mux.HandleFunc("DELETE /inventory/{id}", inventoryHandler.DeleteInventory)
 
 	// AGGREGATIONS handling
+	mux.HandleFunc("GET /reports/total-sales", GetTotalSales)
+	mux.HandleFunc("GET /reports/popular-items", GetPopularItems)
 
 	return mux
 }

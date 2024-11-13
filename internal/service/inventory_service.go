@@ -8,11 +8,11 @@ import (
 )
 
 type InventoryServiceInterface interface {
-	Add(r *http.Request) error
+	AddInventory(r *http.Request) error
 	GetAll() ([]models.InventoryItem, error)
-	GetOne() (models.InventoryItem, error)
-	Update(r *http.Request) error
-	Delete(r *http.Request) error
+	GetOne(id string) (models.InventoryItem, error)
+	Update(r *http.Request, id string) error
+	Delete(id string) error
 }
 
 type inventoryService struct {
@@ -23,7 +23,7 @@ func NewInventoryService(inventoryRepo dal.InventoryRepoInterface) *inventorySer
 	return &inventoryService{inventoryRepo: inventoryRepo}
 }
 
-func (s *inventoryService) Add(r *http.Request) error {
+func (s *inventoryService) AddInventory(r *http.Request) error {
 	return nil
 }
 
@@ -31,14 +31,14 @@ func (s *inventoryService) GetAll() ([]models.InventoryItem, error) {
 	return []models.InventoryItem{}, nil
 }
 
-func (s *inventoryService) GetOne() (models.InventoryItem, error) {
+func (s *inventoryService) GetOne(id string) (models.InventoryItem, error) {
 	return models.InventoryItem{}, nil
 }
 
-func (s *inventoryService) Update(r *http.Request) error {
+func (s *inventoryService) Update(r *http.Request, id string) error {
 	return nil
 }
 
-func (s *inventoryService) Delete(r *http.Request) error {
+func (s *inventoryService) Delete(id string) error {
 	return nil
 }
