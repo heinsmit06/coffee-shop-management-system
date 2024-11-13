@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
 
 	"hot-coffee/internal/service"
@@ -14,20 +15,25 @@ func NewOrderHandler(orderService service.OrderServiceInterface) *orderHandler {
 	return &orderHandler{orderService: orderService}
 }
 
-func CreateNewOrder(w http.ResponseWriter, r *http.Request) {
+func (h *orderHandler) CreateNewOrder(w http.ResponseWriter, r *http.Request) {
+	err := h.orderService.Create(r)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("createHandlerWorks")
 }
 
-func RetrieveAllOrders(w http.ResponseWriter, r *http.Request) {
+func (h *orderHandler) RetrieveAllOrders(w http.ResponseWriter, r *http.Request) {
 }
 
-func RetrieveSpecificOrder(w http.ResponseWriter, r *http.Request) {
+func (h *orderHandler) RetrieveSpecificOrder(w http.ResponseWriter, r *http.Request) {
 }
 
-func UpdateOrder(w http.ResponseWriter, r *http.Request) {
+func (h *orderHandler) UpdateOrder(w http.ResponseWriter, r *http.Request) {
 }
 
-func DeleteOrder(w http.ResponseWriter, r *http.Request) {
+func (h *orderHandler) DeleteOrder(w http.ResponseWriter, r *http.Request) {
 }
 
-func CloseOrder(w http.ResponseWriter, r *http.Request) {
+func (h *orderHandler) CloseOrder(w http.ResponseWriter, r *http.Request) {
 }

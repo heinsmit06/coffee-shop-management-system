@@ -7,19 +7,24 @@ import (
 	"hot-coffee/internal/service"
 )
 
-func SetupServer() *http.ServeMux {
-	menuRepo := dal.NewMenuRepo("data/json")
+func SetupServer(dirPath string) *http.ServeMux {
+	mux := http.NewServeMux()
+
+	menuRepo := dal.NewMenuRepo(dirPath + "/menu_item.json")
 	menuService := service.NewMenuService(menuRepo)
 	menuHandler := NewMenuHandler(menuService)
 
-	mux := http.NewServeMux()
+	orderRepo := dal.NewOrderRepo(dirPath + "/orders.json")
+	orderService := service.NewOrderService(orderRepo)
+	orderHandler := NewOrderHandler(orderService)
+
 	// ORDER handling
-	mux.HandleFunc("POST /order", CreateNewOrder)
-	mux.HandleFunc("GET /order", RetrieveAllOrders)
-	mux.HandleFunc("GET /order/{id}", RetrieveSpecificOrder)
-	mux.HandleFunc("PUT /order/{id}", UpdateOrder)
-	mux.HandleFunc("DELETE /order/{id}", DeleteOrder)
-	mux.HandleFunc("POST /order/{id}/close", CloseOrder)
+	mux.HandleFunc("POST /order", orderHandler.CreateNewOrder)
+	mux.HandleFunc("GET /order", orderHandler.RetrieveAllOrders)
+	mux.HandleFunc("GET /order/{id}", orderHandler.RetrieveSpecificOrder)
+	mux.HandleFunc("PUT /order/{id}", orderHandler.UpdateOrder)
+	mux.HandleFunc("DELETE /order/{id}", orderHandler.DeleteOrder)
+	mux.HandleFunc("POST /order/{id}/close", orderHandler.CloseOrder)
 
 	// MENU Items handling
 	mux.HandleFunc("POST /menu", menuHandler.AddNewMenu)

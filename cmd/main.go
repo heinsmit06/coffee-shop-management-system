@@ -4,7 +4,10 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
+
+	"hot-coffee/internal/handler"
 )
 
 var (
@@ -40,10 +43,10 @@ func Run() {
 		log.Fatal(err)
 	}
 
-	// mux := handler.SetupServer()
+	mux := handler.SetupServer(dirPath)
 
 	fmt.Println("Server started on port: ", port)
-	// log.Fatal(http.ListenAndServe(":"+port, mux))
+	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
 
 func InitFlags() (string, string) {

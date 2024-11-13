@@ -2,6 +2,7 @@ package dal
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 
 	"hot-coffee/models"
@@ -24,14 +25,17 @@ func NewOrderRepo(path string) *orderRepo {
 // Methods:
 func (r *orderRepo) ReadOrders() ([]models.Order, error) {
 	var listOfOrders []models.Order
-	jsonContent, err := os.ReadFile(r.path + "order.json")
+	jsonContent, err := os.ReadFile(r.path)
 	if err != nil {
 		return listOfOrders, err
 	}
 
-	err = json.Unmarshal(jsonContent, &listOfOrders)
-	if err != nil {
-		return listOfOrders, err
+	if len(jsonContent) > 0 {
+		err = json.Unmarshal(jsonContent, &listOfOrders)
+		if err != nil {
+			fmt.Println("readorders Unmarshal")
+			return listOfOrders, err
+		}
 	}
 
 	return listOfOrders, nil
@@ -43,10 +47,11 @@ func (r *orderRepo) WriteOrders(listOfOrders []models.Order) error {
 		return err
 	}
 
-	err = os.WriteFile(r.path+"order.json", jsonData, 0644)
+	err = os.WriteFile(r.path, jsonData, 0644)
 	if err != nil {
 		return err
 	}
 
+	fmt.Println("writeOrders")
 	return nil
 }
