@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
 
 	"hot-coffee/internal/service"
@@ -15,6 +16,10 @@ func NewInventoryHandler(inventoryService service.InventoryServiceInterface) *in
 }
 
 func (h *inventoryHandler) AddNewInventory(w http.ResponseWriter, r *http.Request) {
+	err := h.inventoryService.AddInventory(r)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func (h *inventoryHandler) RetrieveAllInventory(w http.ResponseWriter, r *http.Request) {

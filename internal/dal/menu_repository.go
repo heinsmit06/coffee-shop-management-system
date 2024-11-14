@@ -1,9 +1,15 @@
 package dal
 
-import "hot-coffee/models"
+import (
+	"encoding/json"
+	"os"
+
+	"hot-coffee/models"
+)
 
 type MenuRepositoryInterface interface {
-	GetAll() ([]models.MenuItem, error)
+	ReadMenu() ([]models.Order, error)
+	WriteMenu(listOfMenu []models.Order) error
 }
 
 type menuRepo struct {
@@ -14,6 +20,33 @@ func NewMenuRepo(path string) *menuRepo {
 	return &menuRepo{dirPath: path}
 }
 
-func (r *menuRepo) GetAll() ([]models.MenuItem, error) {
-	return []models.MenuItem{}, nil
+func (r *menuRepo) ReadMenu() ([]models.Order, error) {
+	var listOfMenu []models.Order
+	jsonContent, err := os.ReadFile(r.path)
+	if err != nil {
+		return listOfMenu, err
+	}
+
+	if len(jsonContent) > 0 {
+		err = json.Unmarshal(jsonContent, &listOfMenu)
+		if err != nil {
+			return listOfMenu, err
+		}
+	}
+
+	return listOfMenu, nil
+}
+
+func (r *menuRepo) WriteMenu(listOfMenu []models.Order) error {
+	jsonData, err := json.MarshalIndent(listOfMenu, "", " ")
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(r.path, jsonData, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
