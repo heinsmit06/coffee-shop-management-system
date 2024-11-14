@@ -10,11 +10,11 @@ import (
 func SetupServer(dirPath string) *http.ServeMux {
 	mux := http.NewServeMux()
 
-	menuRepo := dal.NewMenuRepo(dirPath + "/menu_item.json")
+	menuRepo := dal.NewMenuRepo(dirPath)
 	menuService := service.NewMenuService(menuRepo)
 	menuHandler := NewMenuHandler(menuService)
 
-	orderRepo := dal.NewOrderRepo(dirPath + "/orders.json")
+	orderRepo := dal.NewOrderRepo(dirPath)
 	orderService := service.NewOrderService(orderRepo)
 	orderHandler := NewOrderHandler(orderService)
 

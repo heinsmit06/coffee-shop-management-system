@@ -1,8 +1,10 @@
 package service
 
 import (
+	"encoding/json"
 	"net/http"
 
+	"hot-coffee/internal"
 	"hot-coffee/internal/dal"
 	"hot-coffee/models"
 )
@@ -24,6 +26,38 @@ func NewInventoryService(inventoryRepo dal.InventoryRepoInterface) *inventorySer
 }
 
 func (s *inventoryService) AddInventory(r *http.Request) error {
+	listOfInventoryItems, err := s.inventoryRepo.ReadInventory()
+	if err != nil {
+		return err
+	}
+
+	var NewInventoryItem models.InventoryItem
+
+	err = json.NewDecoder(r.Body).Decode(&NewInventoryItem)
+	if err != nil {
+		return err
+	}
+
+	if NewInventoryItem.IngredientID == "" {
+		return internal.ErrNoIngredientID
+	}
+	if NewInventoryItem.Name == "" {
+		return internal.ErrNoIngredientName
+	}
+	if NewInventoryItem.Unit == "" {
+		return internal.ErrNoIngredientUnit
+	}
+
+	for _, InventoryItem := range listOfInventoryItems {
+		if InventoryItem.IngredientID == NewInventoryItem.IngredientID ||
+			InventoryItem.Name == NewInventoryItem.Name {
+			return internal.ErrIngredientAlreadyExist
+		}
+	}
+
+	listOfInventoryItems = append(listOfInventoryItems, NewInventoryItem)
+
+	s.inventoryRepo.WriteInventory(listOfInventoryItems)
 	return nil
 }
 

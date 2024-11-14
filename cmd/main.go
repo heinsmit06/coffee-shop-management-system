@@ -23,24 +23,9 @@ func main() {
 func Run() {
 	dirPath, port = InitFlags()
 
-	err := os.Mkdir(dirPath, 0750)
+	err := os.MkdirAll(dirPath, 0750)
 	if err != nil {
 		log.Fatal("Failed to make directory: ", err)
-	}
-
-	err = os.WriteFile(dirPath+"orders.json", []byte{}, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = os.WriteFile(dirPath+"menu_items.json", []byte{}, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = os.WriteFile(dirPath+"inventory_items.json", []byte{}, 0644)
-	if err != nil {
-		log.Fatal(err)
 	}
 
 	mux := handler.SetupServer(dirPath)
