@@ -7,11 +7,11 @@ type MenuRepositoryInterface interface {
 }
 
 type menuRepo struct {
-	path string
+	dirPath string
 }
 
 func NewMenuRepo(path string) *menuRepo {
-	return &menuRepo{path: path}
+	return &menuRepo{dirPath: path}
 }
 
 func (r *menuRepo) GetAll() ([]models.MenuItem, error) {
