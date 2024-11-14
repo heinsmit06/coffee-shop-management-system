@@ -15,6 +15,8 @@ func NewMenuHandler(menuService service.MenuServiceInterface) *menuHandler {
 }
 
 func (h *menuHandler) AddNewMenu(w http.ResponseWriter, r *http.Request) {
+	err := h.menuService.AddMenu(r)
+	w.Write([]byte(err.Error()))
 }
 
 func (h *menuHandler) RetrieveAllMenu(w http.ResponseWriter, r *http.Request) {

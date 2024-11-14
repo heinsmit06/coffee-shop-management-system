@@ -8,22 +8,30 @@ import (
 )
 
 type MenuRepositoryInterface interface {
-	ReadMenu() ([]models.Order, error)
-	WriteMenu(listOfMenu []models.Order) error
+	ReadMenu() ([]models.MenuItem, error)
+	WriteMenu(listOfMenu []models.MenuItem) error
 }
 
 type menuRepo struct {
-	dirPath string
+	path string
 }
 
 func NewMenuRepo(path string) *menuRepo {
-	return &menuRepo{dirPath: path}
+	return &menuRepo{path: path}
 }
 
-func (r *menuRepo) ReadMenu() ([]models.Order, error) {
-	var listOfMenu []models.Order
-	jsonContent, err := os.ReadFile(r.path)
-	if err != nil {
+func (r *menuRepo) ReadMenu() ([]models.MenuItem, error) {
+	var listOfMenu []models.MenuItem
+	jsonContent, err := os.ReadFile(r.path + "menu_items.json")
+	if os.IsNotExist(err) {
+		file, err := os.OpenFile("menu_items.json", os.O_RDWR|os.O_CREATE, 0755)
+		if err != nil {
+			return listOfMenu, err
+		}
+		file.Close()
+
+		return listOfMenu, nil
+	} else if err != nil {
 		return listOfMenu, err
 	}
 
@@ -37,13 +45,13 @@ func (r *menuRepo) ReadMenu() ([]models.Order, error) {
 	return listOfMenu, nil
 }
 
-func (r *menuRepo) WriteMenu(listOfMenu []models.Order) error {
+func (r *menuRepo) WriteMenu(listOfMenu []models.MenuItem) error {
 	jsonData, err := json.MarshalIndent(listOfMenu, "", " ")
 	if err != nil {
 		return err
 	}
 
-	err = os.WriteFile(r.path, jsonData, 0644)
+	err = os.WriteFile(r.path+"menu_items.json", jsonData, 0644)
 	if err != nil {
 		return err
 	}
