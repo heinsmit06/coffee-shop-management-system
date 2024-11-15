@@ -74,7 +74,19 @@ func (s *menuService) GetAll() ([]models.MenuItem, error) {
 }
 
 func (s *menuService) GetOne(id string) (models.MenuItem, error) {
-	return models.MenuItem{}, nil
+	var menuItem models.MenuItem
+	menuItems, err := s.menuRepo.ReadMenu()
+	if err != nil {
+		return menuItem, err
+	}
+
+	for _, item := range menuItems {
+		if item.ID == id {
+			menuItem = item
+		}
+	}
+
+	return menuItem, nil
 }
 
 func (s *menuService) Update(r *http.Request, id string) error {

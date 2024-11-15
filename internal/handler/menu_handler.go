@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
 
 	"hot-coffee/internal/service"
 )
@@ -52,6 +53,21 @@ func (h *menuHandler) RetrieveAllMenu(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *menuHandler) RetrieveSpecificMenu(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	id := strings.Split(r.URL.Path[1:], "/")[1]
+	menuItem, err := h.menuService.GetOne(id)
+	if err != nil {
+		http.Error(w, "Failed getting one menu item", http.StatusInternalServerError)
+		return
+	}
+
+	menuItemJson, err := json.MarshalIndent(menuItem, "", " ")
+	if err != nil {
+		http.Error(w, "Failed to marshal one menu item", http.StatusInternalServerError)
+		return
+	}
+
+	w.Write(menuItemJson)
 }
 
 func (h *menuHandler) UpdateMenu(w http.ResponseWriter, r *http.Request) {
