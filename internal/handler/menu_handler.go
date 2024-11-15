@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -34,6 +35,20 @@ func (h *menuHandler) AddNewMenu(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *menuHandler) RetrieveAllMenu(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-type", "application/json")
+	allMenuItems, err := h.menuService.GetAll()
+	if err != nil {
+		http.Error(w, "Unable to show the menu", http.StatusInternalServerError)
+		return
+	}
+
+	jsonData, err := json.MarshalIndent(allMenuItems, "", " ")
+	if err != nil {
+		http.Error(w, "Unable to marshal to show the menu", http.StatusInternalServerError)
+		return
+	}
+
+	w.Write(jsonData)
 }
 
 func (h *menuHandler) RetrieveSpecificMenu(w http.ResponseWriter, r *http.Request) {

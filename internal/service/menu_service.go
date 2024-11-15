@@ -66,7 +66,11 @@ func (s *menuService) AddMenu(r *http.Request) error {
 }
 
 func (s *menuService) GetAll() ([]models.MenuItem, error) {
-	return []models.MenuItem{}, nil
+	menuItems, err := s.menuRepo.ReadMenu()
+	if err != nil {
+		return menuItems, err
+	}
+	return menuItems, nil
 }
 
 func (s *menuService) GetOne(id string) (models.MenuItem, error) {
