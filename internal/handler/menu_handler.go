@@ -26,7 +26,7 @@ func (h *menuHandler) AddNewMenu(w http.ResponseWriter, r *http.Request) {
 	err := h.menuService.AddMenu(r)
 	if err != nil {
 		fmt.Println("abc")
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		http.Error(w, "error:"+err.Error(), http.StatusBadRequest)
 		return
 	}
 	// w.Write([]byte(err.Error()))
@@ -71,7 +71,24 @@ func (h *menuHandler) RetrieveSpecificMenu(w http.ResponseWriter, r *http.Reques
 }
 
 func (h *menuHandler) UpdateMenu(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	id := strings.Split(r.URL.Path[1:], "/")[1]
+
+	err := h.menuService.Update(r, id)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }
 
 func (h *menuHandler) DeleteMenu(w http.ResponseWriter, r *http.Request) {
+	id := strings.Split(r.URL.Path[1:], "/")[1]
+
+	err := h.menuService.Delete(id)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
 }
