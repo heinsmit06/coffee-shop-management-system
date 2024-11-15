@@ -26,7 +26,7 @@ func main() {
 func Run() {
 	dirPath, port = InitFlags()
 
-	err := os.MkdirAll(dirPath, 0750)
+	err := os.MkdirAll(dirPath, 0o750)
 	if err != nil {
 		log.Fatal("Failed to make directory: ", err)
 	}

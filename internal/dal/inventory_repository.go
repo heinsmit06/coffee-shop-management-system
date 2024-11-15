@@ -26,7 +26,7 @@ func (r *inventoryRepo) ReadInventory() ([]models.InventoryItem, error) {
 	jsonContent, err := os.ReadFile(r.path + "/inventory_item.json")
 	if err != nil {
 		if os.IsNotExist(err) {
-			os.WriteFile(r.path+"/inventory_item.json", []byte{}, 0644)
+			os.WriteFile(r.path+"/inventory_item.json", []byte{}, 0o644)
 		} else {
 			return listOfInventory, err
 		}
@@ -49,7 +49,7 @@ func (r *inventoryRepo) WriteInventory(listOfInventory []models.InventoryItem) e
 		return err
 	}
 
-	err = os.WriteFile(r.path+"/inventory_item.json", jsonData, 0644)
+	err = os.WriteFile(r.path+"/inventory_item.json", jsonData, 0o644)
 	if err != nil {
 		return err
 	}

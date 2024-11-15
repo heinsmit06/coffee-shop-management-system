@@ -47,7 +47,7 @@ func (r *orderRepo) WriteOrders(listOfOrders []models.Order) error {
 		return err
 	}
 
-	err = os.WriteFile(r.path, jsonData, 0644)
+	err = os.WriteFile(r.path, jsonData, 0o644)
 	if err != nil {
 		return err
 	}

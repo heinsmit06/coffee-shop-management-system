@@ -30,7 +30,7 @@ func (r *menuRepo) ReadMenu() ([]models.MenuItem, error) {
 	if os.IsNotExist(err) {
 		internal.Logger.Warn("menu_items.json not found, creating new file", "path", r.path+"menu_items.json")
 
-		file, err := os.OpenFile(r.path+"menu_items.json", os.O_RDWR|os.O_CREATE, 0755)
+		file, err := os.OpenFile(r.path+"menu_items.json", os.O_RDWR|os.O_CREATE, 0o755)
 		if err != nil {
 			internal.Logger.Error("Failed to create menu_items.json", "error", err)
 			return listOfMenu, err
@@ -66,7 +66,7 @@ func (r *menuRepo) WriteMenu(listOfMenu []models.MenuItem) error {
 		return err
 	}
 
-	err = os.WriteFile(r.path+"menu_items.json", jsonData, 0644)
+	err = os.WriteFile(r.path+"menu_items.json", jsonData, 0o644)
 	if err != nil {
 		internal.Logger.Error("Failed to write menu items to menu_items.json", "error", err)
 		return err
