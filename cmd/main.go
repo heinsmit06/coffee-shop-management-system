@@ -50,7 +50,7 @@ func InitFlags() (string, string) {
 		"path to the directory where the files will be stored as arguments",
 	)
 
-	flag.StringVar(&port, "port", "8080", "port number API gonna listening to")
+	flag.StringVar(&port, "port", "8000", "port number API gonna listening to")
 	flag.Parse()
 
 	if help {
@@ -81,16 +81,23 @@ Options:
 	// }
 
 	if dirPath != "" {
-		// dirPath += "/data/"
 		dirPath = filepath.Clean(dirPath)
-		if strings.HasPrefix(dirPath, "..") || !filepath.IsAbs(dirPath) {
+		if strings.HasPrefix(dirPath, "..") {
 			fmt.Fprintf(os.Stderr, "Invalid directory path: %s\n", dirPath)
 			os.Exit(1)
 		}
-		dirPath += "/data/"
 	} else {
-		dirPath = "data/"
+		dirPath = "data" // Set default directory if not provided
 	}
 
-	return dirPath, port
+	// Convert relative path to absolute
+	absDirPath, err := filepath.Abs(dirPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to get absolute path: %s\n", err)
+		os.Exit(1)
+	}
+	absDirPath += "/"
+
+	fmt.Println(absDirPath)
+	return absDirPath, port
 }

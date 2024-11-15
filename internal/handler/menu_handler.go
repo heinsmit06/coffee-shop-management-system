@@ -7,6 +7,7 @@ import (
 
 	"hot-coffee/internal"
 	"hot-coffee/internal/service"
+	"hot-coffee/internal/utils"
 )
 
 type menuHandler struct {
@@ -22,14 +23,14 @@ func (h *menuHandler) AddNewMenu(w http.ResponseWriter, r *http.Request) {
 
 	if r.Header.Get("Content-type") != "application/json" {
 		internal.Logger.Warn("Unsupported Media Type", "expected", "application/json", "received", r.Header.Get("Content-type"))
-		http.Error(w, "Content-Type must be application/json", http.StatusUnsupportedMediaType)
+		utils.ResponseErrorJson(internal.ErrUnsupportedMediaType, w)
 		return
 	}
 
 	err := h.menuService.AddMenu(r)
 	if err != nil {
 		internal.Logger.Error("Failed to add new menu item", "error", err)
-		http.Error(w, "error:"+err.Error(), http.StatusBadRequest)
+		utils.ResponseErrorJson(err, w)
 		return
 	}
 	// w.Write([]byte(err.Error()))
@@ -45,6 +46,7 @@ func (h *menuHandler) RetrieveAllMenu(w http.ResponseWriter, r *http.Request) {
 	allMenuItems, err := h.menuService.GetAll()
 	if err != nil {
 		internal.Logger.Error("Failed to retrieve all menu items", "error", err)
+
 		http.Error(w, "Unable to show the menu", http.StatusInternalServerError)
 		return
 	}
@@ -90,7 +92,7 @@ func (h *menuHandler) UpdateMenu(w http.ResponseWriter, r *http.Request) {
 	internal.Logger.Info("UpdateMenu called", "method", "UpdateMenu")
 
 	w.Header().Set("Content-Type", "application/json")
-	id := strings.Split(r.URL.Path[1:], "/")[1]
+	id := r.PathValue("id")
 	internal.Logger.Info("Updating menu item", "menuItemID", id)
 
 	err := h.menuService.Update(r, id)

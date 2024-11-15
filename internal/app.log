@@ -1,0 +1,142 @@
+{"time":"2024-11-15T22:17:19.554270658+05:00","level":"INFO","msg":"RetrieveAllMenu called","method":"RetrieveAllMenu"}
+{"time":"2024-11-15T22:17:19.554343451+05:00","level":"INFO","msg":"GetAll called","method":"GetAll"}
+{"time":"2024-11-15T22:17:19.554349121+05:00","level":"INFO","msg":"ReadMenu called","method":"ReadMenu"}
+{"time":"2024-11-15T22:17:19.554425551+05:00","level":"INFO","msg":"Successfully retrieved all menu items","count":3}
+{"time":"2024-11-15T22:17:19.554433353+05:00","level":"INFO","msg":"Successfully retrieved menu items","count":3}
+{"time":"2024-11-15T22:17:19.554477901+05:00","level":"INFO","msg":"Menu items sent as JSON response","status":200}
+{"time":"2024-11-15T22:17:38.445940641+05:00","level":"INFO","msg":"RetrieveAllOrders called","method":"RetrieveAllOrders"}
+{"time":"2024-11-15T22:17:38.446185922+05:00","level":"INFO","msg":"All orders sent as JSON response","status":200}
+{"time":"2024-11-15T22:17:44.470864455+05:00","level":"INFO","msg":"RetrieveAllInventory called","method":"RetrieveAllInventory"}
+{"time":"2024-11-15T22:17:44.470956559+05:00","level":"INFO","msg":"All inventory items sent as JSON response","status":200}
+{"time":"2024-11-15T22:33:47.869009515+05:00","level":"INFO","msg":"RetrieveAllInventory called","method":"RetrieveAllInventory"}
+{"time":"2024-11-15T22:33:47.869105037+05:00","level":"INFO","msg":"All inventory items sent as JSON response","status":200}
+{"time":"2024-11-15T22:33:57.288679345+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:33:57.288915126+05:00","level":"INFO","msg":"Specific inventory item sent as JSON response","status":200}
+{"time":"2024-11-15T22:34:00.481594216+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:34:00.481661966+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:34:19.384819327+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:34:19.384917086+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:34:33.117554698+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:34:33.117638889+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:34:54.399369763+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:34:54.399763817+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:35:03.202847466+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:35:03.20295891+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"No Ingredient ID"}
+{"time":"2024-11-15T22:35:18.529906916+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:35:18.530001626+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"No Ingredient ID"}
+{"time":"2024-11-15T22:35:28.562039217+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:35:28.563510677+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"No Ingredient ID"}
+{"time":"2024-11-15T22:35:35.553698313+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:35:35.553803148+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"No Ingredient ID"}
+{"time":"2024-11-15T22:35:46.448006053+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:35:46.448327559+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"No Ingredient ID"}
+{"time":"2024-11-15T22:36:27.886206042+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:36:27.886283301+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"Ingredient with the same ID/Name already exists"}
+{"time":"2024-11-15T22:36:34.636553867+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:36:34.636720457+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"Ingredient with the same ID/Name already exists"}
+{"time":"2024-11-15T22:36:47.438072665+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:36:47.438213502+05:00","level":"INFO","msg":"Inventory item added successfully","status":201}
+{"time":"2024-11-15T22:36:52.030695828+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:36:52.030784262+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"Ingredient with the same ID/Name already exists"}
+{"time":"2024-11-15T22:36:58.567072252+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:36:58.567156496+05:00","level":"ERROR","msg":"Failed to add new inventory item","error":"No Ingredient ID"}
+{"time":"2024-11-15T22:37:07.370403062+05:00","level":"INFO","msg":"AddNewInventory called","method":"AddNewInventory"}
+{"time":"2024-11-15T22:37:07.370663783+05:00","level":"INFO","msg":"Inventory item added successfully","status":201}
+{"time":"2024-11-15T22:37:31.592415486+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:37:31.592696266+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:37:40.609287012+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:37:40.609467321+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:37:58.896342478+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:37:58.896437968+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:37:59.772253462+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:37:59.772377429+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:38:00.23529588+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:38:00.235397608+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:38:00.721148051+05:00","level":"INFO","msg":"RetrieveSpecificInventory called","method":"RetrieveSpecificInventory"}
+{"time":"2024-11-15T22:38:00.72139994+05:00","level":"ERROR","msg":"Failed to retrieve specific inventory item","error":"There is no Ingredient with such ID"}
+{"time":"2024-11-15T22:39:13.313766904+05:00","level":"INFO","msg":"RetrieveAllOrders called","method":"RetrieveAllOrders"}
+{"time":"2024-11-15T22:39:13.313891091+05:00","level":"INFO","msg":"All orders sent as JSON response","status":200}
+{"time":"2024-11-15T22:39:24.542428303+05:00","level":"INFO","msg":"RetrieveAllOrders called","method":"RetrieveAllOrders"}
+{"time":"2024-11-15T22:39:24.542658631+05:00","level":"INFO","msg":"All orders sent as JSON response","status":200}
+{"time":"2024-11-15T22:39:28.255741461+05:00","level":"INFO","msg":"RetrieveSpecificOrder called","method":"RetrieveSpecificOrder"}
+{"time":"2024-11-15T22:39:28.255872194+05:00","level":"ERROR","msg":"Failed to retrieve specific order","error":"There is no Order with such ID"}
+{"time":"2024-11-15T22:39:41.109453618+05:00","level":"INFO","msg":"RetrieveSpecificOrder called","method":"RetrieveSpecificOrder"}
+{"time":"2024-11-15T22:39:41.109566686+05:00","level":"ERROR","msg":"Failed to retrieve specific order","error":"There is no Order with such ID"}
+{"time":"2024-11-15T22:39:49.663805389+05:00","level":"INFO","msg":"RetrieveAllOrders called","method":"RetrieveAllOrders"}
+{"time":"2024-11-15T22:39:49.664276479+05:00","level":"INFO","msg":"All orders sent as JSON response","status":200}
+{"time":"2024-11-15T22:41:53.57114247+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:41:53.571766334+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:41:54.639335943+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:41:54.640090847+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:41:55.327237723+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:41:55.327485904+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:42:05.032183226+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:42:05.032798093+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:42:18.641791737+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:42:18.642403319+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:42:49.575887731+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:42:49.57673374+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:42:50.719486034+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:42:50.719767169+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:42:51.301018448+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:42:51.301266075+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:43:00.169152159+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:43:00.169596386+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:43:30.650551789+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:43:30.65087337+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:44:02.82321725+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:44:02.823748456+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:44:13.826265643+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:44:13.826583663+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:44:34.342984128+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:44:34.343288648+05:00","level":"INFO","msg":"Order created successfully","status":201}
+{"time":"2024-11-15T22:44:41.927139741+05:00","level":"INFO","msg":"CreateNewOrder called","method":"CreateNewOrder"}
+{"time":"2024-11-15T22:44:41.927358911+05:00","level":"ERROR","msg":"Failed to create new order","error":"Insufficient inventory for ingredient 'Espresso Shot'. Required: 2.00shots, Available: 1.00shots."}
+{"time":"2024-11-15T22:45:03.230288787+05:00","level":"INFO","msg":"UpdateOrder called","method":"UpdateOrder"}
+{"time":"2024-11-15T22:45:03.230496806+05:00","level":"INFO","msg":"Order updated successfully","status":201}
+{"time":"2024-11-15T22:46:10.222132166+05:00","level":"INFO","msg":"RetrieveAllMenu called","method":"RetrieveAllMenu"}
+{"time":"2024-11-15T22:46:10.222155244+05:00","level":"INFO","msg":"GetAll called","method":"GetAll"}
+{"time":"2024-11-15T22:46:10.222159842+05:00","level":"INFO","msg":"ReadMenu called","method":"ReadMenu"}
+{"time":"2024-11-15T22:46:10.222227761+05:00","level":"INFO","msg":"Successfully retrieved all menu items","count":3}
+{"time":"2024-11-15T22:46:10.22223545+05:00","level":"INFO","msg":"Successfully retrieved menu items","count":3}
+{"time":"2024-11-15T22:46:10.222271131+05:00","level":"INFO","msg":"Menu items sent as JSON response","status":200}
+{"time":"2024-11-15T22:46:32.560112838+05:00","level":"INFO","msg":"UpdateMenu called","method":"UpdateMenu"}
+{"time":"2024-11-15T22:46:32.560133549+05:00","level":"INFO","msg":"Updating menu item","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:32.560142691+05:00","level":"INFO","msg":"Update called","method":"Update","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:32.560186014+05:00","level":"INFO","msg":"ReadMenu called","method":"ReadMenu"}
+{"time":"2024-11-15T22:46:32.560240339+05:00","level":"INFO","msg":"Menu item found","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:32.560247239+05:00","level":"WARN","msg":"Attempted to modify product_id","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:32.560251944+05:00","level":"ERROR","msg":"Failed to update menu item","menuItemID":"latte","error":"product_id cannot be changed"}
+{"time":"2024-11-15T22:46:38.725182914+05:00","level":"INFO","msg":"UpdateMenu called","method":"UpdateMenu"}
+{"time":"2024-11-15T22:46:38.725231737+05:00","level":"INFO","msg":"Updating menu item","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:38.725238105+05:00","level":"INFO","msg":"Update called","method":"Update","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:38.725342361+05:00","level":"INFO","msg":"ReadMenu called","method":"ReadMenu"}
+{"time":"2024-11-15T22:46:38.725458238+05:00","level":"INFO","msg":"Menu item found","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:38.725466352+05:00","level":"INFO","msg":"ReadInventory called","method":"ReadInventory"}
+{"time":"2024-11-15T22:46:38.725511008+05:00","level":"INFO","msg":"Updated ingredient quantity","menuItemID":"latte","ingredientID":"espresso_shot","newQuantity":1}
+{"time":"2024-11-15T22:46:38.725526465+05:00","level":"INFO","msg":"Updated ingredient quantity","menuItemID":"latte","ingredientID":"milk","newQuantity":200}
+{"time":"2024-11-15T22:46:38.725531215+05:00","level":"INFO","msg":"WriteMenu called","method":"WriteMenu","count":3}
+{"time":"2024-11-15T22:46:38.725618951+05:00","level":"INFO","msg":"Successfully wrote menu items to menu_items.json","path":"/home/student/hot-coffee/data/menu_items.json"}
+{"time":"2024-11-15T22:46:38.725624032+05:00","level":"INFO","msg":"Menu item updated successfully","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:38.725628261+05:00","level":"INFO","msg":"Menu item updated successfully","menuItemID":"latte","status":200}
+{"time":"2024-11-15T22:46:53.022647068+05:00","level":"INFO","msg":"UpdateMenu called","method":"UpdateMenu"}
+{"time":"2024-11-15T22:46:53.022691686+05:00","level":"INFO","msg":"Updating menu item","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:53.022701518+05:00","level":"INFO","msg":"Update called","method":"Update","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:53.022772186+05:00","level":"INFO","msg":"ReadMenu called","method":"ReadMenu"}
+{"time":"2024-11-15T22:46:53.022888808+05:00","level":"INFO","msg":"Menu item found","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:53.022902978+05:00","level":"INFO","msg":"ReadInventory called","method":"ReadInventory"}
+{"time":"2024-11-15T22:46:53.02296593+05:00","level":"INFO","msg":"Updated ingredient quantity","menuItemID":"latte","ingredientID":"espresso_shot","newQuantity":1}
+{"time":"2024-11-15T22:46:53.02298299+05:00","level":"INFO","msg":"Updated ingredient quantity","menuItemID":"latte","ingredientID":"milk","newQuantity":200}
+{"time":"2024-11-15T22:46:53.022992256+05:00","level":"INFO","msg":"WriteMenu called","method":"WriteMenu","count":3}
+{"time":"2024-11-15T22:46:53.023085031+05:00","level":"INFO","msg":"Successfully wrote menu items to menu_items.json","path":"/home/student/hot-coffee/data/menu_items.json"}
+{"time":"2024-11-15T22:46:53.023097272+05:00","level":"INFO","msg":"Menu item updated successfully","menuItemID":"latte"}
+{"time":"2024-11-15T22:46:53.023104284+05:00","level":"INFO","msg":"Menu item updated successfully","menuItemID":"latte","status":200}
+{"time":"2024-11-15T22:47:00.828369394+05:00","level":"INFO","msg":"UpdateMenu called","method":"UpdateMenu"}
+{"time":"2024-11-15T22:47:00.828434555+05:00","level":"INFO","msg":"Updating menu item","menuItemID":"latte"}
+{"time":"2024-11-15T22:47:00.828442676+05:00","level":"INFO","msg":"Update called","method":"Update","menuItemID":"latte"}
+{"time":"2024-11-15T22:47:00.828503081+05:00","level":"INFO","msg":"ReadMenu called","method":"ReadMenu"}
+{"time":"2024-11-15T22:47:00.82866+05:00","level":"INFO","msg":"Menu item found","menuItemID":"latte"}
+{"time":"2024-11-15T22:47:00.828666526+05:00","level":"INFO","msg":"ReadInventory called","method":"ReadInventory"}
+{"time":"2024-11-15T22:47:00.828711857+05:00","level":"INFO","msg":"Updated ingredient quantity","menuItemID":"latte","ingredientID":"espresso_shot","newQuantity":1}
+{"time":"2024-11-15T22:47:00.828729644+05:00","level":"WARN","msg":"Ingredient not found in inventory.json","menuItemID":"latte","ingredientID":"milfk"}
+{"time":"2024-11-15T22:47:00.828747384+05:00","level":"ERROR","msg":"Failed to update menu item","menuItemID":"latte","error":"ingredient 'milfk' not found in inventory.json"}
