@@ -6,6 +6,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
+	"strconv"
+	"strings"
 
 	"hot-coffee/internal/handler"
 )
@@ -64,8 +67,9 @@ Options:
 		os.Exit(0)
 	}
 
-	if port == "0" {
-		fmt.Fprint(os.Stderr, "Port 0 can NOT be used\n")
+	portNumber, _ := strconv.Atoi(port)
+	if portNumber < 1024 || portNumber > 65535 {
+		fmt.Fprintf(os.Stderr, "Port number is not allowed: must be in between [1024, 65535]\n")
 		os.Exit(1)
 	}
 	// if dirPath == "" {
@@ -77,6 +81,12 @@ Options:
 	// }
 
 	if dirPath != "" {
+		// dirPath += "/data/"
+		dirPath = filepath.Clean(dirPath)
+		if strings.HasPrefix(dirPath, "..") || !filepath.IsAbs(dirPath) {
+			fmt.Fprintf(os.Stderr, "Invalid directory path: %s\n", dirPath)
+			os.Exit(1)
+		}
 		dirPath += "/data/"
 	} else {
 		dirPath = "data/"
