@@ -1,6 +1,8 @@
 package service
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"hot-coffee/internal/dal"
@@ -24,6 +26,44 @@ func NewMenuService(menuRepo dal.MenuRepositoryInterface) *menuService {
 }
 
 func (s *menuService) AddMenu(r *http.Request) error {
+	var menuItem models.MenuItem
+	menuItems, err := s.menuRepo.ReadMenu()
+	if err != nil {
+		fmt.Println("qw")
+		return err
+	}
+
+	decoder := json.NewDecoder(r.Body)
+	defer r.Body.Close()
+
+	err = decoder.Decode(&menuItem)
+	if err != nil {
+		fmt.Println("fgsdg")
+		return err
+	}
+
+	// checking the fields for emptiness or correctness
+	if menuItem.ID == "" {
+		return fmt.Errorf("missing: product_id")
+	}
+	if menuItem.Name == "" {
+		return fmt.Errorf("missing: name")
+	}
+	if menuItem.Description == "" {
+		return fmt.Errorf("missing: description")
+	}
+	if menuItem.Price <= 0 {
+		return fmt.Errorf("invalid price: must be greater than zero")
+	}
+	if len(menuItem.Ingredients) == 0 {
+		return fmt.Errorf("missing: ingredients ")
+	}
+
+	menuItems = append(menuItems, menuItem)
+	err = s.menuRepo.WriteMenu(menuItems)
+	if err != nil {
+		return nil
+	}
 
 	return nil
 }

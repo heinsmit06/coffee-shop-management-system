@@ -2,6 +2,7 @@ package dal
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 
 	"hot-coffee/models"
@@ -24,7 +25,7 @@ func (r *menuRepo) ReadMenu() ([]models.MenuItem, error) {
 	var listOfMenu []models.MenuItem
 	jsonContent, err := os.ReadFile(r.path + "menu_items.json")
 	if os.IsNotExist(err) {
-		file, err := os.OpenFile("menu_items.json", os.O_RDWR|os.O_CREATE, 0755)
+		file, err := os.OpenFile(r.path+"menu_items.json", os.O_RDWR|os.O_CREATE, 0755)
 		if err != nil {
 			return listOfMenu, err
 		}
@@ -38,6 +39,7 @@ func (r *menuRepo) ReadMenu() ([]models.MenuItem, error) {
 	if len(jsonContent) > 0 {
 		err = json.Unmarshal(jsonContent, &listOfMenu)
 		if err != nil {
+			fmt.Println("this")
 			return listOfMenu, err
 		}
 	}
