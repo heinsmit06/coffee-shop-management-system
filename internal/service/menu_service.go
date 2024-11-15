@@ -33,10 +33,7 @@ func (s *menuService) AddMenu(r *http.Request) error {
 		return err
 	}
 
-	decoder := json.NewDecoder(r.Body)
-	defer r.Body.Close()
-
-	err = decoder.Decode(&menuItem)
+	err = json.NewDecoder(r.Body).Decode(&menuItem)
 	if err != nil {
 		fmt.Println("fgsdg")
 		return err
