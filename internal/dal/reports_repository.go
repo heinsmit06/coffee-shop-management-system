@@ -21,7 +21,7 @@ func NewReportsRepo(path string) *reportsRepo {
 }
 
 func (r *reportsRepo) ReadMenu() ([]models.MenuItem, error) {
-	var listOfMenu []models.MenuItem
+	listOfMenu := []models.MenuItem{}
 	jsonContent, err := os.ReadFile(r.path + "/menu_items.json")
 	if err != nil {
 		return listOfMenu, err
@@ -38,7 +38,7 @@ func (r *reportsRepo) ReadMenu() ([]models.MenuItem, error) {
 }
 
 func (r *reportsRepo) ReadOrders() ([]models.Order, error) {
-	var listOfOrder []models.Order
+	listOfOrder := []models.Order{}
 	jsonContent, err := os.ReadFile(r.path + "/orders.json")
 	if err != nil {
 		return listOfOrder, err
